@@ -158,6 +158,7 @@ predicate:
       comparison_predicate
     | in_predicate
     | like_predicate
+    | ilike_predicate
     | null_predicate
     | quantified_comparison_predicate
     | quantified_in_predicate
@@ -204,6 +205,13 @@ like_predicate:
         -> ^(LIKE column_reference STRING_LIT)
     | column_reference NOT LIKE STRING_LIT
         -> ^(NOT_LIKE column_reference STRING_LIT)
+    ;
+
+ilike_predicate:
+      column_reference ILIKE STRING_LIT
+        -> ^(ILIKE column_reference STRING_LIT)
+    | column_reference NOT ILIKE STRING_LIT
+        -> ^(NOT_ILIKE column_reference STRING_LIT)
     ;
 
 null_predicate:

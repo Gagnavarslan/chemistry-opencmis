@@ -71,8 +71,12 @@ public abstract class AbstractPredicateWalker implements PredicateWalker {
             return walkIsNotNull(node, node.getChild(0));
         case CmisQlStrictLexer.LIKE:
             return walkLike(node, node.getChild(0), node.getChild(1));
+        case CmisQlStrictLexer.ILIKE:
+            return walkILike(node, node.getChild(0), node.getChild(1));
         case CmisQlStrictLexer.NOT_LIKE:
             return walkNotLike(node, node.getChild(0), node.getChild(1));
+        case CmisQlStrictLexer.NOT_ILIKE:
+            return walkNotILike(node, node.getChild(0), node.getChild(1));
         case CmisQlStrictLexer.CONTAINS:
             if (node.getChildCount() == 1) {
                 return walkContains(node, null, node.getChild(0));
@@ -288,6 +292,20 @@ public abstract class AbstractPredicateWalker implements PredicateWalker {
 
     @Override
     public Boolean walkNotLike(Tree opNode, Tree colNode, Tree stringNode) {
+        walkExpr(colNode);
+        walkExpr(stringNode);
+        return false;
+    }
+
+    @Override
+    public Boolean walkILike(Tree opNode, Tree colNode, Tree stringNode) {
+        walkExpr(colNode);
+        walkExpr(stringNode);
+        return false;
+    }
+
+    @Override
+    public Boolean walkNotILike(Tree opNode, Tree colNode, Tree stringNode) {
         walkExpr(colNode);
         walkExpr(stringNode);
         return false;
