@@ -71,6 +71,10 @@ public interface PredicateWalker extends PredicateWalkerBase {
 
     Boolean walkNotLike(Tree node, Tree colNode, Tree stringNode);
 
+    Boolean walkILike(Tree node, Tree colNode, Tree stringNode);
+
+    Boolean walkNotILike(Tree node, Tree colNode, Tree stringNode);
+
     Boolean walkContains(Tree node, Tree qualNode, Tree paramNode);
 
     Boolean walkInFolder(Tree node, Tree qualNode, Tree paramNode);

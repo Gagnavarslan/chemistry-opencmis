@@ -37,6 +37,7 @@ tokens {
     EQ_ANY;
     NOT_IN;
     NOT_LIKE;
+    NOT_ILIKE;
     IS_NULL;
     IS_NOT_NULL;
     ORDER_BY;
@@ -94,6 +95,7 @@ OR : ('O'|'o')('R'|'r');
 NOT : ('N'|'n')('O'|'o')('T'|'t');
 IN : ('I'|'i')('N'|'n');
 LIKE : ('L'|'l')('I'|'i')('K'|'k')('E'|'e');
+ILIKE : ('I'|'i')('L'|'l')('I'|'i')('K'|'k')('E'|'e');
 ANY : ('A'|'a')('N'|'n')('Y'|'y');
 CONTAINS : ('C'|'c')('O'|'o')('N'|'n')('T'|'t')('A'|'a')('I'|'i')('N'|'n')('S'|'s');
 SCORE : ('S'|'s')('C'|'c')('O'|'o')('R'|'r')('E'|'e');
